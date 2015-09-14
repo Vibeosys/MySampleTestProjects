@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,6 +14,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button clickme;
+        final TextView show;
+        clickme=(Button)findViewById(R.id.button);
+        show=(TextView)findViewById(R.id.textView);
+        clickme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show.setText("Hi");
+
+            }
+        });
+
     }
 
     @Override
