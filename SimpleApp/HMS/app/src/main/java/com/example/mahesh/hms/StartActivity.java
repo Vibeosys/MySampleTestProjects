@@ -1,6 +1,7 @@
 package com.example.mahesh.hms;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
@@ -17,7 +18,7 @@ public class StartActivity extends Activity {
     EditText cust_id;
     EditText pwd;
     Button check;
-
+ProgressDialog progress;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,17 +32,22 @@ public class StartActivity extends Activity {
                                      @Override
                                      public void onClick(View v) {
 
-                      customer_id=cust_id.getText().toString();
-                      password=pwd.getText().toString();
-if(customer_id.equals(" ") && password.equals(" ")){
-    Toast.makeText(getApplicationContext(),"Invalid Data",Toast.LENGTH_SHORT).show();
-}else{
-    Toast.makeText(getApplicationContext(),"valid Data",Toast.LENGTH_SHORT).show();
-}
-                                     }
+                      if(cust_id.getText().toString().length()==0||cust_id.getText().toString()==null){
+                          cust_id.setError("Enter valid Customer id");
+                      }
+                      else if(pwd.getText().toString().length()==0||pwd.getText().toString()==null){
+                                             pwd.setError("Enter valid password");
+                                         }
+                                         else{
+                          Toast.makeText(getApplicationContext(),"Validated User",Toast.LENGTH_SHORT).show();
+                      }
+
+                                   }
                                  }
         );
 
 
     }
+
+
 }
