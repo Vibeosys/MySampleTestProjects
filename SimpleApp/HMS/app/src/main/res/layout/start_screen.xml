@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+<RelativeLayout
+    android:id="@+id/header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:background="#E7E7F6"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Device Registration"
+        android:textSize="30dp"
+        android:textColor="#434B4D"
+
+        />
+
+
+</RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/user"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_above="@+id/footer"
+        android:layout_marginBottom="10dp"
+   android:orientation="vertical"
+        >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Customer Id"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/editText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_marginLeft="10dp"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:hint="Customer Id" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:id="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/editText2"
+            android:layout_alignTop="@+id/editText2"
+            android:layout_marginLeft="10dp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:layout_marginRight="10dp"
+            android:hint="Password"
+            android:id="@+id/editText2"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:id="@+id/button"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/shape"
+            android:layout_marginTop="43dp"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#E7E7F6">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="#434B4D"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="V 1.2 \n Vibeosys Software Pvt Ltd.            "/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
