@@ -6,6 +6,7 @@ import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by mahesh on 9/15/2015.
@@ -18,8 +19,8 @@ public class StartActivity extends Activity {
     Button check;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         super.setContentView(R.layout.start_screen);
 
         cust_id=(EditText)findViewById(R.id.editText);
@@ -32,13 +33,11 @@ public class StartActivity extends Activity {
 
                       customer_id=cust_id.getText().toString();
                       password=pwd.getText().toString();
-if(){
-
-
+if(customer_id.equals(" ") && password.equals(" ")){
+    Toast.makeText(getApplicationContext(),"Invalid Data",Toast.LENGTH_SHORT).show();
+}else{
+    Toast.makeText(getApplicationContext(),"valid Data",Toast.LENGTH_SHORT).show();
 }
-                                         else{
-    
-                                         }
                                      }
                                  }
         );
