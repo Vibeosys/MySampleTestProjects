@@ -46,9 +46,10 @@ DatabaseCredentials databaseCredentials=new DatabaseCredentials(getApplicationCo
                     Log.e("CheckStatus",""+_check);
 if(_check==true){
     SharedPreferences.Editor editor=sharedPreferences.edit();
-
+editor.putBoolean("isLoggedin",true);
     editor.putString("userId",loginid.getText().toString());
     editor.commit();
+
     Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
     startActivity(intent);
 }else{
