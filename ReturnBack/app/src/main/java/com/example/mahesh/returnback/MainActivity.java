@@ -3,6 +3,7 @@ package com.example.mahesh.returnback;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -15,7 +16,13 @@ TextView textView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     textView=(TextView)findViewById(R.id.textView);
-        startActivityForResult(new Intent(getApplicationContext(),SecondActivity.class),1);
+Intent i=new Intent(getApplicationContext(),SecondActivity.class);
+        i.putExtra("name", "name");
+        Bundle bundle=new Bundle();
+        bundle.putString("age1","50");
+        i.putExtras(bundle);
+
+        startActivityForResult(new Intent(getApplicationContext(), SecondActivity.class), 1);
 
     }
 
@@ -25,6 +32,9 @@ TextView textView;
 if(requestCode==1){
     if(resultCode==RESULT_OK){
 textView.setText(data.getData().toString());
+        Log.w("Name", "" + data.getStringExtra("name1"));
+        Bundle bundle1 = data.getExtras();
+        Log.w("Age", "" + bundle1.getString("age2"));
         Toast.makeText(getApplicationContext(),"Retured Value  "+data.getData().toString(),Toast.LENGTH_SHORT).show();
     }
 }
