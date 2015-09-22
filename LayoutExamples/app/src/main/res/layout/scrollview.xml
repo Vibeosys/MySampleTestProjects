@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal"
+        android:fillViewport="false">  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="387dp"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout"
+        android:layout_marginTop="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/name"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Enter Mobile No : "
+            android:layout_below="@+id/linearLayout"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="Enter Password : "
+            android:layout_weight="1"
+            android:gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:hint="Enter Password "
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Enter Mobile No : "
+            android:layout_below="@+id/linearLayout"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="Enter Password : "
+            android:layout_weight="1"
+            android:gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:hint="Enter Password "
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Enter Mobile No : "
+            android:layout_below="@+id/linearLayout"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="Enter Password : "
+            android:layout_weight="1"
+            android:gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:hint="Enter Password "
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="Enter Password : "
+            android:layout_weight="1"
+            android:gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:hint="Enter Password "
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:text="Enter Password : "
+        android:layout_weight="1"
+        android:gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:hint="Enter Password "
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:text="Enter Password : "
+        android:layout_weight="1"
+        android:gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:hint="Enter Password "
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:text="Enter Password : "
+        android:layout_weight="1"
+        android:gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:hint="Enter Password "
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:text="Enter Password : "
+        android:layout_weight="1"
+        android:gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:hint="Enter Password "
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:text="Enter Password : "
+        android:layout_weight="1"
+        android:gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:hint="Enter Password "
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/button_name"
+        android:layout_below="@+id/id2"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/mobname"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Enter Mobile Number"/>
+
+
+    </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

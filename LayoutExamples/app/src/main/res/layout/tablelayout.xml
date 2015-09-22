@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TableRow android:layout_width="match_parent">
+        <TextView android:text="Enter Mobile No"
+            />
+        <EditText android:hint="Enter Mobile No"
+           android:layout_width="match_parent"
+            android:id="@+id/editText" />
+    </TableRow>
+<TableRow>
+
+    <Button android:text="Login"
+        android:layout_column="1"
+        android:id="@+id/button"/>
+</TableRow>
+</TableLayout>
