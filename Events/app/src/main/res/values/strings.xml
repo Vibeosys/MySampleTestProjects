@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Events</string>
+<string-array name="country_name">
+    <item >India</item>
+    <item>USA</item>
+    <item>Netherland</item>
+    <item>China</item>
+    <item>Ireland</item>
+    <item>Uk</item>
+</string-array>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+</resources>
