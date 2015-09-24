@@ -5,8 +5,8 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.example.mahesh.events"
-        minSdkVersion 23
+        applicationId "com.example.mahesh.pickers"
+        minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
