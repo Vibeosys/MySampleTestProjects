@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceCategory android:title="UserDetails">
+    <EditTextPreference android:title="Your Name"
+                    android:key="username"
+                    android:defaultValue="name"
+                    android:summary=""/>
+    <ListPreference android:title="Select your city"
+                android:key="cityname"
+                android:defaultValue="1"
+                android:entryValues="@array/cityids"
+                android:entries="@array/city"
+                android:icon="@drawable/download"/>
+</PreferenceCategory>
+<PreferenceScreen android:title="Change Settings">
+<PreferenceCategory android:title="Settings">
+    <RingtonePreference android:title="select ringtone"
+                        android:key="ringtone"
+                        android:summary="select ringtone"/>
+    <EditTextPreference android:title= "enter ringtone"
+                        android:key="ring"
+                        android:summary="Ringtone edited"/>
+    <CheckBoxPreference android:title="select one of them"
+                        android:key="cvalue"
+                        android:summary="choicebox value"/>
+</PreferenceCategory>
+
+</PreferenceScreen>
+
+</PreferenceScreen>

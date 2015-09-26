@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">PreferenceExample</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="city">
+        <item>Pune</item>
+        <item>Mumbai</item>
+        <item>Ahemednagar</item>
+        <item>Nanded</item>
+        <item>Satara</item>
+        <item>Aurangabad</item>
+    </string-array>
+    <string-array name="cityids">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+</resources>
