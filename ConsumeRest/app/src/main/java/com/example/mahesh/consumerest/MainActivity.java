@@ -1,7 +1,9 @@
 package com.example.mahesh.consumerest;
 
+import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,8 +32,10 @@ EditText mobile_edit;
 EditText pass_edit;
 Button button_login;
 String content;
-    ProgressDialog pDialog;
-    static  final String Call_URL="http://hmkcode.appspot.com/jsonservlet";
+    NetworkUtils networkUtils;
+
+    ProgressDialog pDialog;//http://api.androidhive.info/contacts/  http://192.168.1.142:80/SocialProject/api/users "http://androidexample.com/media/webservice/JsonReturn.php"
+    static  final String Call_URL="http://192.168.1.142:80/SocialProject/api/users";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +53,18 @@ String content;
                 } else {
                     if (pass_edit.getText().toString() == null || pass_edit.getText().toString().length() <= 3) {
                         pass_edit.setError("Please enter valid more then 3 charecters.");
-                    } else new LoginService().execute(Call_URL);
-                }
-            }
+                    } else {
+                        if(new NetworkUtils().isActiveNetworkAvailable(getApplicationContext())) {
+                            new LoginService().execute(Call_URL);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"Internet not found...",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    }
+                    }
+
         });
     }
 
@@ -59,33 +73,31 @@ String content;
     private class LoginService extends AsyncTask<String,Void,String>{
 
 
+
     @Override
     protected void onPostExecute(String s) {
-       pDialog.dismiss();
-        Log.d("OUTPUT",s);
-        JSONArray jsonObjectRes;
-        JSONObject json;
-        int length;
-        try{
-            jsonObjectRes=new JSONArray(s);
 
-            length=jsonObjectRes.length();
-            for(int i=0;i<length;i++) {
-             json=jsonObjectRes.getJSONObject(i);
-                Log.d("RESULT", json.getString("name"));
-                Log.d("MESSAGE",json.getString("country"));
-                Log.d("T",json.getString("twitter"));
+        pDialog.dismiss();
+        Log.d("RESPONSE RECEIVED...", s);
+        try {
+            JSONObject jsonObject = new JSONObject(s);
+            JSONArray jsonArray = jsonObject.getJSONArray("users");
+            for(int i=0;i<jsonArray.length();i++){
+                JSONObject jsonObject1=jsonArray.getJSONObject(i);
+                Log.d("USER ID  ",jsonObject1.getString("user_id"));
+                Log.d("USERNAME  ",jsonObject1.getString("username"));
+                Log.d("NAME  ",jsonObject1.getString("name"));
             }
-       }catch (JSONException e ){
-         e.printStackTrace();
-        }catch (ClassCastException ex){
-            ex.printStackTrace();
+        }catch (JSONException e){
+            e.printStackTrace();
         }
+
+
     }
 
     @Override
     protected void onPreExecute() {
-super.onPreExecute();
+        super.onPreExecute();
         pDialog = new ProgressDialog(MainActivity.this);
         pDialog.setMessage("Please wait...");
         pDialog.setCancelable(false);
@@ -103,24 +115,25 @@ super.onPreExecute();
 
         BufferedReader bufferedReader;
         try {
-            url= new URL(Call_URL);
+            url = new URL(params[0]);
+            Log.d("URL Calling  ", Call_URL);
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setDoInput(true);
-            urlConnection.setDoOutput(true);
+
             urlConnection.setUseCaches(false);
-            urlConnection.setRequestMethod("POST");
+            urlConnection.setRequestMethod("GET");
             urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setConnectTimeout(10000);
             urlConnection.setReadTimeout(10000);
             urlConnection.connect();
-            JSONObject jsonObject=new JSONObject();
+            //JSONObject jsonObject=new JSONObject();
             //jsonObject.put("ID","1");
             //jsonObject.put("Name","mahesh");
-            outputStreamWriter=new OutputStreamWriter(urlConnection.getOutputStream());
-            outputStreamWriter.write(jsonObject.toString());
-            outputStreamWriter.flush();
-            outputStreamWriter.close();
-            int Http_Result=urlConnection.getResponseCode();
+//           outputStreamWriter=new OutputStreamWriter(urlConnection.getOutputStream());
+  //          outputStreamWriter.write(jsonObject.toString());
+    //        outputStreamWriter.flush();
+//            outputStreamWriter.close();*/
+          int Http_Result=urlConnection.getResponseCode();
+
             if(Http_Result==HttpURLConnection.HTTP_OK){
                 bufferedReader=new BufferedReader(new InputStreamReader(urlConnection.getInputStream(),"utf-8"));
                 String line=null;
@@ -129,7 +142,15 @@ super.onPreExecute();
                 }
                 bufferedReader.close();
             }
-            content=stringBuilder.toString();
+            else {
+                if(Http_Result==HttpURLConnection.HTTP_CLIENT_TIMEOUT){
+                    Toast.makeText(getApplicationContext(),"Time Out Occours"+urlConnection,Toast.LENGTH_SHORT).show();
+               }
+                else Log.d("RESPONSE CODE", String.valueOf(Http_Result));
+
+
+            }
+             content=stringBuilder.toString();
 
         } catch (MalformedURLException e1){
             e1.printStackTrace();
