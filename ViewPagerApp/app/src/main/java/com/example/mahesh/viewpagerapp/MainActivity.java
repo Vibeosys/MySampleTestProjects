@@ -1,17 +1,31 @@
 package com.example.mahesh.viewpagerapp;
 
+
 import android.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
+
+import android.support.v4.view.ViewPager;
+
 import android.os.Bundle;
+
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
 
+import com.astuetz.PagerSlidingTabStrip;
+
+public class MainActivity extends AppCompatActivity {
+ViewPager viewPager;
+    PagerSlidingTabStrip pagerTitleStrip;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        viewPager=(ViewPager)findViewById(R.id.pager);
+        viewPager.setAdapter(new CustomPageAdaptor(getSupportFragmentManager(),this));
+        pagerTitleStrip=(PagerSlidingTabStrip)findViewById(R.id.tabs);
+        pagerTitleStrip.setViewPager(viewPager);
     }
 
     @Override
@@ -35,4 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
 }

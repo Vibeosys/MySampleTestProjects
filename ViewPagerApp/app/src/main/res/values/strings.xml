@@ -3,4 +3,25 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="drawer_open" />
+    <string name="drawer_close" />
+    <string-array name="nav_drawer_items">
+        <item >Home</item>
+        <item >Find People</item>
+        <item >Photos</item>
+        <item >Communities</item>
+        <item >Pages</item>
+        <item >What\'s Hot</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/download</item>
+        <item>@drawable/downloadd</item>
+        <item>@drawable/downloadq</item>
+        <item>@drawable/download</item>
+        <item>@drawable/downloadl</item>
+        <item>@drawable/download</item>
+    </array>
 </resources>

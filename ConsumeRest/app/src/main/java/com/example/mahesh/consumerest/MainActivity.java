@@ -35,7 +35,7 @@ String content;
     NetworkUtils networkUtils;
 
     ProgressDialog pDialog;//http://api.androidhive.info/contacts/  http://192.168.1.142:80/SocialProject/api/users "http://androidexample.com/media/webservice/JsonReturn.php"
-    static  final String Call_URL="http://192.168.1.142:80/SocialProject/api/users";
+    static  final String Call_URL="http://192.168.1.142:80/SocialProject/api/insert";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +79,7 @@ String content;
 
         pDialog.dismiss();
         if(s!=null) Log.d("RESPONSE RECEIVED...", s);
-        try {
+       /* try {
             JSONObject jsonObject = new JSONObject(s);
             JSONArray jsonArray = jsonObject.getJSONArray("users");
             for(int i=0;i<jsonArray.length();i++){
@@ -90,7 +90,7 @@ String content;
             }
         }catch (JSONException e){
             e.printStackTrace();
-        }
+        }*/
 
 
     }
@@ -118,7 +118,7 @@ String content;
             url = new URL(params[0]);
             Log.d("URL Calling  ", Call_URL);
             urlConnection = (HttpURLConnection) url.openConnection();
-            Log.d("STATUS","Request Sended...");
+            Log.d("STATUS", "Request Sended...");
             urlConnection.setDoOutput(true);
             urlConnection.setDoInput(true);
             urlConnection.setUseCaches(false);
@@ -128,10 +128,10 @@ String content;
             urlConnection.setReadTimeout(10000);
             urlConnection.connect();
             JSONObject jsonObject=new JSONObject();
-            jsonObject.put("user_id", "1");
-            jsonObject.put("username", "nvir");
-            jsonObject.put("password", "unknown");
-            jsonObject.put("name","Niteen");
+            jsonObject.put("username", "mahesh");
+          //  jsonObject.put("name", "roy");
+           // jsonObject.put("password", "6600");
+          //  jsonObject.put("name","Niteen");
             outputStreamWriter=new OutputStreamWriter(urlConnection.getOutputStream());
             outputStreamWriter.write(jsonObject.toString());
             outputStreamWriter.flush();
@@ -176,7 +176,9 @@ String content;
             e1.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (JSONException e) {
+        } /*catch (JSONException e) {
+            e.printStackTrace();
+        }*/ catch (JSONException e) {
             e.printStackTrace();
         }
 
