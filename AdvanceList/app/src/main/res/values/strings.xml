@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AdvanceList</string>
+    <string-array name="users">
+        <item >User 1</item>
+        <item>User 2</item>
+        <item>User 3</item>
+        <item>User 4</item>
+        <item>User 5</item>
+    </string-array>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+</resources>

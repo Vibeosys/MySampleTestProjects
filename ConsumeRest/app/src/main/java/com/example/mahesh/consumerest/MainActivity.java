@@ -78,7 +78,7 @@ String content;
     protected void onPostExecute(String s) {
 
         pDialog.dismiss();
-        Log.d("RESPONSE RECEIVED...", s);
+        if(s!=null) Log.d("RESPONSE RECEIVED...", s);
         try {
             JSONObject jsonObject = new JSONObject(s);
             JSONArray jsonArray = jsonObject.getJSONArray("users");
@@ -118,43 +118,65 @@ String content;
             url = new URL(params[0]);
             Log.d("URL Calling  ", Call_URL);
             urlConnection = (HttpURLConnection) url.openConnection();
-
+            Log.d("STATUS","Request Sended...");
+            urlConnection.setDoOutput(true);
+            urlConnection.setDoInput(true);
             urlConnection.setUseCaches(false);
-            urlConnection.setRequestMethod("GET");
+            urlConnection.setRequestMethod("POST");
             urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setConnectTimeout(10000);
             urlConnection.setReadTimeout(10000);
             urlConnection.connect();
-            //JSONObject jsonObject=new JSONObject();
-            //jsonObject.put("ID","1");
-            //jsonObject.put("Name","mahesh");
-//           outputStreamWriter=new OutputStreamWriter(urlConnection.getOutputStream());
-  //          outputStreamWriter.write(jsonObject.toString());
-    //        outputStreamWriter.flush();
-//            outputStreamWriter.close();*/
+            JSONObject jsonObject=new JSONObject();
+            jsonObject.put("user_id", "1");
+            jsonObject.put("username", "nvir");
+            jsonObject.put("password", "unknown");
+            jsonObject.put("name","Niteen");
+            outputStreamWriter=new OutputStreamWriter(urlConnection.getOutputStream());
+            outputStreamWriter.write(jsonObject.toString());
+            outputStreamWriter.flush();
+            outputStreamWriter.close();
+            Log.d("STATUS","DATA SENDED.... "+jsonObject.toString());
           int Http_Result=urlConnection.getResponseCode();
+            Log.d("RESPONSE CODE", String.valueOf(Http_Result));
+            switch (Http_Result){
+                case  HttpURLConnection.HTTP_OK:
+                    bufferedReader=new BufferedReader(new InputStreamReader(urlConnection.getInputStream(),"utf-8"));
+                    String line=null;
+                    while ((line=bufferedReader.readLine())!=null){
+                        stringBuilder.append(line);
+                    }
+                    bufferedReader.close();
+                    break;
+                case HttpURLConnection.HTTP_CLIENT_TIMEOUT:
+                     Log.d("STATUS ","Time Out Occours During Connecting to server..");
+                    break;
+                 case HttpURLConnection.HTTP_BAD_GATEWAY:
+                     Log.d("STATUS ","BAD GATEWAY REQUEST ...");
+                     break;
+                case HttpURLConnection.HTTP_INTERNAL_ERROR:
+                    Log.d("STATUS ","HTTP INTERNAL ERROR");
+                    break;
+                case HttpURLConnection.HTTP_UNAUTHORIZED:
+                    Log.d("STATUS ","HTTP UNAUTHORIZED.");
+                    break;
+                case HttpURLConnection.HTTP_NOT_FOUND:
+                    Log.d("STATUS","HTTP NOT FOUND..");
+                    break;
+                case HttpURLConnection.HTTP_BAD_METHOD:
+                    Log.d("STATUS","HTTP_BAD_METHOD");
+                    break;
 
-            if(Http_Result==HttpURLConnection.HTTP_OK){
-                bufferedReader=new BufferedReader(new InputStreamReader(urlConnection.getInputStream(),"utf-8"));
-                String line=null;
-                while ((line=bufferedReader.readLine())!=null){
-                    stringBuilder.append(line);
-                }
-                bufferedReader.close();
             }
-            else {
-                if(Http_Result==HttpURLConnection.HTTP_CLIENT_TIMEOUT){
-                    Toast.makeText(getApplicationContext(),"Time Out Occours"+urlConnection,Toast.LENGTH_SHORT).show();
-               }
-                else Log.d("RESPONSE CODE", String.valueOf(Http_Result));
 
 
-            }
              content=stringBuilder.toString();
 
         } catch (MalformedURLException e1){
             e1.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
