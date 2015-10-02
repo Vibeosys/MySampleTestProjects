@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="4796f18d3750bf2bfa078407a94a7f9db35b440d">
+        <dex dex="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\pre-dexed\debug\classes-4f852c210f38f6981ef791c638884d4253149732.jar" />
+    </item>
+    <item
+        jar="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\exploded-aar\com.android.support\support-v13\21.0.2\jars\libs\internal_impl-21.0.2.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="9346da9fb778af9e451211bbc3541daced174ba7">
+        <dex dex="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\pre-dexed\debug\internal_impl-21.0.2-011ebd396979d89097027ca0a18e8e5d42f12d3d.jar" />
+    </item>
+    <item
+        jar="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3">
+        <dex dex="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\pre-dexed\debug\classes-8e7f8dab7f8f985deaee316bd3f2bcaac46245c5.jar" />
+    </item>
+    <item
+        jar="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.2\jars\libs\internal_impl-21.0.2.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f">
+        <dex dex="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\pre-dexed\debug\internal_impl-21.0.2-f89e666291f4fcf4a1d46d3249e7ce50fb0e05cd.jar" />
+    </item>
+    <item
+        jar="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="b017100da14f9c158c9f5f2f508333c224b24a7c">
+        <dex dex="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\pre-dexed\debug\classes-b0230fe8a0a00e11d1256f9cbb4235ec862c3a39.jar" />
+    </item>
+    <item
+        jar="D:\Android SDK\SDK1\extras\android\m2repository\com\android\support\support-annotations\21.0.2\support-annotations-21.0.2.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
+        <dex dex="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\pre-dexed\debug\support-annotations-21.0.2-32fc5e424d6a9a84771c996678ca4fbaad77d52c.jar" />
+    </item>
+    <item
+        jar="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="7ae2d38807a43b2f2185ff4089a92c790b579e54">
+        <dex dex="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\pre-dexed\debug\classes-200f9dc6dab7631c4cfecec72ba6efd0e735c0c0.jar" />
+    </item>
+    <item
+        jar="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\exploded-aar\com.android.support\support-v13\21.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="61965ae058916e6a57950dd61b0164dc866af19a">
+        <dex dex="E:\Github-Vibeosys\MySampleTestProjects\NavigationDrawer\Application\build\intermediates\pre-dexed\debug\classes-714dd181355c1c9d3d58e50acbc438a85b3e3ed2.jar" />
+    </item>
+
+</items>

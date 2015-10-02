@@ -1,0 +1,2 @@
+include ':androidChatWidget'
+include ':androidChatWidgetExample'
