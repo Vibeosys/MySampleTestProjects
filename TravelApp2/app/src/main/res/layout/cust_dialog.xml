@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="#F3F3F3"
+    android:orientation="vertical"
+    android:id="@+id/item1">
+
+    <!-- icon -->
+    <ImageView
+
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/camera"
+        android:id="@+id/imageView2" />
+
+    <!-- title -->
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Photos "
+        android:textSize="18dp"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_centerHorizontal="true" />
+
+    <!-- counter -->
+    <TextView
+         android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+
+        android:gravity="center"
+        android:text="10"
+        android:textColor="#000"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+</RelativeLayout>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="48dp"
+android:background="#F3F3F3"
+android:orientation="vertical"
+android:layout_below="@+id/item1"
+    android:id="@+id/relativeLayout">
+
+<!-- icon -->
+<ImageView
+    android:id="@+id/item_icon"
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    android:layout_alignParentLeft="true"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="8dp"
+    android:src="@drawable/message"
+    />
+
+<!-- title -->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="18dp"
+    android:text="New Messages"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true" />
+
+<!-- counter -->
+<TextView
+    android:id="@+id/item_counter"
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    android:layout_alignParentRight="true"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="8dp"
+    android:gravity="center"
+    android:textColor="#000"
+    android:textSize="12sp"
+    android:text="3"
+    android:textStyle="bold" />
+</RelativeLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_below="@+id/relativeLayout"
+    android:paddingTop="10dp"
+    android:id="@+id/linearLayout">
+    <Button
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send \nMessage"
+        android:id="@+id/button"
+        android:layout_marginStart="51dp"
+        android:background="@drawable/shape"
+        android:paddingRight="10dp"
+        android:layout_alignParentStart="true" />
+
+</LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send \nPhoto"
+        android:background="@drawable/shape"
+        android:id="@+id/button2"
+        android:paddingLeft="10dp"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="78dp" />
+</RelativeLayout>

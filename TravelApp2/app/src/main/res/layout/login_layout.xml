@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<ImageView
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:src="@drawable/download"
+    android:layout_gravity="center"
+    android:layout_marginTop="50dp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/imageView3"
+    />
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:layout_below="@id/imageView3">
+        <!--  Email Label -->
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#372c24"
+            android:text="Name"/>
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:hint="Enter Name"
+            android:layout_marginBottom="20dip"
+            android:singleLine="true"/>
+        <!--  Password Label -->
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#372c24"
+            android:text="Mobile No"/>
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:singleLine="true"
+            android:password="true"
+            android:hint="Mobile Number"/>
+        <!-- Login button -->
+        <Button android:id="@+id/btnLogin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="Login"/>
+        <!-- Link to Registration Screen -->
+
+    </LinearLayout>
+
+</RelativeLayout>
