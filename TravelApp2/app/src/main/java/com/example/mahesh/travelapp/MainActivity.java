@@ -1,9 +1,9 @@
 package com.example.mahesh.travelapp;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
@@ -15,6 +15,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -23,6 +26,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.MapFragment;
@@ -49,17 +54,29 @@ public class MainActivity extends AppCompatActivity
         text_dest=(AutoCompleteTextView)findViewById(R.id.dest_text);
         ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list_dest);
         text_dest.setAdapter(arrayAdapter);
-
-      //  setUpMapIfNeeded();
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        text_dest.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //int id1=(Integer) parent.getSelectedItem();
+                String selection = (String) parent.getItemAtPosition(position);
+                int itemId = (int) parent.getId();
+                Log.d("ItemId", String.valueOf(itemId));
+                // Toast.makeText(getApplicationContext(), ,Toast.LENGTH_SHORT).show();
             }
         });
 
+Button button=(Button)findViewById(R.id.fab);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Saved Map..", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
+            }
+        });
+      /*  FloatingActionButton fab;
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+
+*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -79,9 +96,16 @@ public class MainActivity extends AppCompatActivity
                     .radius(100)
                     .strokeColor(Color.RED)
                     .fillColor(Color.BLUE));
-          Marker marker=  mMap.addMarker(new MarkerOptions().position(new LatLng(18.5203, 73.8567)).title("Pune"));
+            CameraUpdate center=
+                    CameraUpdateFactory.newLatLng(new LatLng(18.5203,
+                            73.8567));
+            CameraUpdate zoom=CameraUpdateFactory.zoomTo(20);
+
+            mMap.moveCamera(center);
+            mMap.animateCamera(zoom);
+            Marker marker=  mMap.addMarker(new MarkerOptions().position(new LatLng(18.5203, 73.8567)).title("Pune"));
             Marker marker1=mMap.addMarker(new MarkerOptions().position(new LatLng(12.9667, 77.5667)).title("Banglore"));
-           Marker marker2= mMap.addMarker(new MarkerOptions().position(new LatLng(13.0827, 80.2707)).title("Chennai"));
+            Marker marker2= mMap.addMarker(new MarkerOptions().position(new LatLng(13.0827, 80.2707)).title("Chennai"));
             mMap.addPolyline(new PolylineOptions().geodesic(true)
                     .add(new LatLng(18.5203, 73.8567))  // Pune
                     .add(new LatLng(12.9667, 77.5667))  // Banglore
@@ -131,6 +155,8 @@ public class MainActivity extends AppCompatActivity
       dialog.setContentView(R.layout.cust_dialog);
       // Set dialog title
       dialog.setTitle(title);
+      Window window = dialog.getWindow();
+      window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
       dialog.show();
       RelativeLayout relativeLayout=(RelativeLayout)dialog.findViewById(R.id.item1);
       relativeLayout.setOnClickListener(new View.OnClickListener() {
@@ -204,6 +230,7 @@ sendphoto_button.setOnClickListener(new View.OnClickListener() {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -216,7 +243,7 @@ sendphoto_button.setOnClickListener(new View.OnClickListener() {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_save) {
             return true;
         }
 
@@ -230,11 +257,13 @@ sendphoto_button.setOnClickListener(new View.OnClickListener() {
         int id = item.getItemId();
 
        if (id == R.id.nav_manage) {
-
+           Intent intent2=new Intent(getApplicationContext(),ShowRouteList.class);
+           startActivity(intent2);
 
         }
         else if(id==R.id.nav_gallery){
-
+           Intent intent2=new Intent(getApplicationContext(),ShowMyPhotos.class);
+           startActivity(intent2);
        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -13,7 +13,6 @@
 
     <!-- icon -->
     <ImageView
-
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignParentLeft="true"
@@ -91,34 +90,32 @@ android:layout_below="@+id/item1"
     android:text="3"
     android:textStyle="bold" />
 </RelativeLayout>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_below="@+id/relativeLayout"
-    android:paddingTop="10dp"
-    android:id="@+id/linearLayout">
     <Button
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Send \nMessage"
         android:id="@+id/button"
-        android:layout_marginStart="51dp"
+        android:layout_marginStart="25dp"
         android:background="@drawable/shape"
-        android:paddingRight="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="0.00"
+        android:layout_alignTop="@+id/button2"
         android:layout_alignParentStart="true" />
-
-</LinearLayout>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Send \nPhoto"
         android:background="@drawable/shape"
         android:id="@+id/button2"
-        android:paddingLeft="10dp"
-        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_marginRight="10dp"
+
+        android:layout_marginEnd="30dp"
+        android:layout_below="@+id/relativeLayout"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="78dp" />
+        android:layout_marginTop="22dp" />
+
+
+
+
 </RelativeLayout>

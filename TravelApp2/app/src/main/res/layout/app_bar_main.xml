@@ -17,10 +17,12 @@
 
     <include layout="@layout/content_main" />
 
-    <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
+    <Button android:id="@+id/fab"
+        android:layout_width="50dp" android:layout_height="50dp"
         android:layout_gravity="bottom|end" android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_menu_save"
+        android:text="Save"
+        android:background="@drawable/shape"
+        android:textColor="#ffffff"
 
        />
 
