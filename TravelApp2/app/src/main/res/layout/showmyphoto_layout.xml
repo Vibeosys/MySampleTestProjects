@@ -2,9 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-<GridView
+<FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" android:id="@+id/grid_images" >
+    android:layout_height="match_parent">
+    <ListView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:id="@+id/grid_images" />
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="Created on 12-02-2014"/>
+</FrameLayout>
 
-</GridView>
 </RelativeLayout>

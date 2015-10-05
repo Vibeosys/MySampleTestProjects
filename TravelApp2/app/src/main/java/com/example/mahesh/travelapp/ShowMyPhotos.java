@@ -7,19 +7,20 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 /**
  * Created by mahesh on 10/3/2015.
  */
 public class ShowMyPhotos extends AppCompatActivity{
-GridView showphoto_view;
+ListView showphoto_view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showmyphoto_layout);
         getSupportActionBar();
 
-showphoto_view=(GridView)findViewById(R.id.grid_images);
+showphoto_view=(ListView)findViewById(R.id.grid_images);
 
 showphoto_view.setAdapter(new ImageAdapter(this));
     }
@@ -42,6 +43,7 @@ int [] mThumbIds= new int[]{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         ImageView imageView;
         //TextView textView;
         if(convertView==null){

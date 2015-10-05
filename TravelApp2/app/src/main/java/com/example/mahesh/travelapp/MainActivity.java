@@ -22,12 +22,11 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.MapFragment;
@@ -95,24 +94,63 @@ Button button=(Button)findViewById(R.id.fab);
                     .center(new LatLng(21.0000, 78.0000))
                     .radius(100)
                     .strokeColor(Color.RED)
-                    .fillColor(Color.BLUE));
-            CameraUpdate center=
+                  .fillColor(Color.BLUE));
+           /* CameraUpdate center=
                     CameraUpdateFactory.newLatLng(new LatLng(18.5203,
                             73.8567));
             CameraUpdate zoom=CameraUpdateFactory.zoomTo(20);
 
             mMap.moveCamera(center);
-            mMap.animateCamera(zoom);
-            Marker marker=  mMap.addMarker(new MarkerOptions().position(new LatLng(18.5203, 73.8567)).title("Pune"));
-            Marker marker1=mMap.addMarker(new MarkerOptions().position(new LatLng(12.9667, 77.5667)).title("Banglore"));
-            Marker marker2= mMap.addMarker(new MarkerOptions().position(new LatLng(13.0827, 80.2707)).title("Chennai"));
+            mMap.animateCamera(zoom);*/
+            mMap.addMarker(new MarkerOptions().position(new LatLng(18.5203, 73.8567)).title("Pune"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(12.9667, 77.5667)).title("Banglore"));
+             mMap.addMarker(new MarkerOptions().position(new LatLng(13.0827, 80.2707)).title("Chennai"));
             mMap.addPolyline(new PolylineOptions().geodesic(true)
                     .add(new LatLng(18.5203, 73.8567))  // Pune
                     .add(new LatLng(12.9667, 77.5667))  // Banglore
                     .add(new LatLng(13.0827, 80.2707))  // Mumbai
 
             );
-            mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+
+            mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                @Override
+                public View getInfoWindow(Marker mark) {
+
+
+
+                    return null;
+                }
+
+                @Override
+                public View getInfoContents(Marker marker) {
+                    View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
+                    TextView title = (TextView) v.findViewById(R.id.textView3);
+                    title.setText(marker.getTitle());
+                    return v;
+                }
+
+            });
+            mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                public void onInfoWindowClick(Marker mark) {
+                    if(mark.getTitle().equals("Pune")) {
+                        CustDialog("Pune");
+                        Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+
+                    }
+                    if(mark.getTitle().equals("Chennai"))
+                    {
+                        CustDialog("Chennai");
+                        Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+
+                    }
+                    if(mark.getTitle().equals("Banglore")){
+                        CustDialog("Banglore");
+                        Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+
+                    }
+                }
+            });
+          /*  mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                 @Override
                 public boolean onMarkerClick(Marker mark) {
                     if(mark.getTitle().equals("Pune")) {
@@ -135,7 +173,7 @@ Button button=(Button)findViewById(R.id.fab);
                 }
 
 
-            });
+            });*/
 
         }
         catch (Exception e) {
