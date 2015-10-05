@@ -30,12 +30,15 @@
  <TextView
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
-     android:text="resend OTP"/>
+     android:text="resend OTP"
+     android:contextClickable="true"/>
         <!-- Login button -->
         <Button android:id="@+id/btnconform"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
+            android:textColor="#ffffff"
+            android:background="#283593"
             android:text="Submit"/>
         <!-- Link to Registration Screen -->
 

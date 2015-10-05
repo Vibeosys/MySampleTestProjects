@@ -94,7 +94,7 @@ Button button=(Button)findViewById(R.id.fab);
                     .center(new LatLng(21.0000, 78.0000))
                     .radius(100)
                     .strokeColor(Color.RED)
-                  .fillColor(Color.BLUE));
+                    .fillColor(Color.BLUE));
            /* CameraUpdate center=
                     CameraUpdateFactory.newLatLng(new LatLng(18.5203,
                             73.8567));
@@ -111,40 +111,46 @@ Button button=(Button)findViewById(R.id.fab);
                     .add(new LatLng(13.0827, 80.2707))  // Mumbai
 
             );
+            //View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
 
             mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                View view = null;
+                //View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
+
                 @Override
                 public View getInfoWindow(Marker mark) {
-
-
-
-                    return null;
+                    if(view == null) {
+                        view = getLayoutInflater().inflate(R.layout.info_window_layout, null);
+                        view.setLayoutParams(new ViewGroup.LayoutParams(200,200));
+                    }
+                    return view;
                 }
 
                 @Override
                 public View getInfoContents(Marker marker) {
-                    View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
-                    TextView title = (TextView) v.findViewById(R.id.textView3);
+                    View view = getInfoWindow(marker);
+                    view.setLayoutParams(new ViewGroup.LayoutParams(200,200));
+                    TextView title = (TextView) view.findViewById(R.id.textView3);
                     title.setText(marker.getTitle());
-                    return v;
+                    return view;
                 }
 
             });
             mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                 public void onInfoWindowClick(Marker mark) {
                     if(mark.getTitle().equals("Pune")) {
-                        CustDialog("Pune");
+                   //     CustDialog("Pune");
                         Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
 
                     }
                     if(mark.getTitle().equals("Chennai"))
                     {
-                        CustDialog("Chennai");
-                        Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+                     //   CustDialog("Chennai");
+                       Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
 
                     }
                     if(mark.getTitle().equals("Banglore")){
-                        CustDialog("Banglore");
+                       // CustDialog("Banglore");
                         Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
 
                     }

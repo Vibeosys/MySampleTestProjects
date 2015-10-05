@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="180dp"
-    android:layout_height="350dp" >
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_text">
 
    <LinearLayout
        android:layout_width="match_parent"
@@ -11,6 +13,7 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_alignParentLeft="true"
+           android:textColor="#000"
            android:layout_marginLeft="8dp"
            android:layout_marginRight="8dp"
            android:layout_marginBottom="5dp"
@@ -38,12 +41,12 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_alignParentLeft="true"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
             android:src="@drawable/camera"
-            android:id="@+id/imageView2" />
+            android:id="@+id/imageView2"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
 
         <!-- title -->
         <TextView
@@ -68,7 +71,8 @@
             android:textSize="8sp"
             android:textStyle="bold"
             android:layout_alignBottom="@+id/item_title"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/shape" />
     </RelativeLayout>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -83,12 +87,11 @@
             android:id="@+id/item_icon"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_alignParentLeft="true"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
             android:src="@drawable/message"
-            />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
 
         <!-- title -->
         <TextView
@@ -112,32 +115,36 @@
             android:textColor="#000"
             android:textSize="8dp"
             android:text="3"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:background="@drawable/shape"
+            android:autoText="false" />
     </RelativeLayout>
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="40dp"
     android:layout_below="@+id/relativeLayout">
     <TextView
-        android:layout_width="40dp"
+        android:layout_width="60dp"
         android:textSize="8dp"
-        android:layout_height="25dp"
+        android:layout_height="30dp"
         android:text="Send \nPhoto"
 
         android:id="@+id/button2"
         android:layout_marginRight="10dp"
         android:contextClickable="true"
         android:layout_marginEnd="28dp"
-
+        android:textAlignment="center"
+        android:background="@drawable/custom_text"
         android:textStyle="bold"
         android:layout_gravity="right"
         android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:gravity="center_vertical" />
 
     <TextView
 
-        android:layout_width="40dp"
-        android:layout_height="25dp"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
         android:text="Send \nMessage"
         android:id="@+id/button"
         android:layout_marginStart="25dp"
@@ -145,9 +152,13 @@
         android:layout_marginRight="10dp"
         android:layout_weight="0.00"
         android:layout_alignTop="@+id/button2"
+        android:background="@drawable/custom_text"
+        android:textAlignment="center"
+        android:elegantTextHeight="true"
         android:textSize="8dp"
         android:textStyle="bold"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical" />
 </RelativeLayout>
 
 </LinearLayout>
