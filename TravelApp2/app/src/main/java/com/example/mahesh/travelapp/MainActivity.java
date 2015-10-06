@@ -118,44 +118,44 @@ Button button=(Button)findViewById(R.id.fab);
 
                 @Override
                 public View getInfoWindow(Marker mark) {
-                    if (view == null) {
-                        view = getLayoutInflater().inflate(R.layout.info_window_layout, null);
 
-                        Log.d("Height", String.valueOf(view.getHeight()));
-                        Log.d("Width",String.valueOf(view.getWidth()));
-                        //    view.setLayoutParams(new ViewGroup.LayoutParams(200,200));
-                        TextView title = (TextView) view.findViewById(R.id.textView3);
-                        title.setText(mark.getTitle());
-                    }
-                    return view;
+                    return null;
                 }
 
                 @Override
                 public View getInfoContents(Marker marker) {
                     //* View view = getInfoWindow(marker);
                     //view.setLayoutParams(new ViewGroup.LayoutParams().LayoutParams(200, 200));*//*
-
-                    return null;
+                    if (view == null) {
+                        view = getLayoutInflater().inflate(R.layout.info_window_layout, null);
+                        view.setLayoutParams(new RelativeLayout.LayoutParams(250,RelativeLayout.LayoutParams.WRAP_CONTENT));
+                        Log.d("Height", String.valueOf(view.getHeight()));
+                        Log.d("Width",String.valueOf(view.getWidth()));
+                        //    view.setLayoutParams(new ViewGroup.LayoutParams(200,200));
+                        TextView title = (TextView) view.findViewById(R.id.textView3);
+                        title.setText(marker.getTitle());
+                    }
+                    return view;
                 }
 
             });
             mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
 
                 public void onInfoWindowClick(Marker mark) {
-                    mark.setInfoWindowAnchor(5, 5);
+
 
                     if (mark.getTitle().equals("Pune")) {
-                        //     CustDialog("Pune");
+                          CustDialog("Pune");
                         Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
 
                     }
                     if (mark.getTitle().equals("Chennai")) {
-                        //   CustDialog("Chennai");
+                           CustDialog("Chennai");
                         Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
 
                     }
                     if (mark.getTitle().equals("Banglore")) {
-                        // CustDialog("Banglore");
+                         CustDialog("Banglore");
                         Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
 
                     }
@@ -212,6 +212,8 @@ Button button=(Button)findViewById(R.id.fab);
       relativeLayout.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
+Intent intentphoto=new Intent(getApplicationContext(),PhotosFromOthers.class);
+              startActivity(intentphoto);
               Toast.makeText(getApplicationContext(),"View Photos...",Toast.LENGTH_SHORT).show();
           }
       });
