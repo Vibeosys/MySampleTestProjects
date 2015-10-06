@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
@@ -103,9 +104,10 @@ String dest_from[];String dest_to[];
             if(i<3) appendDrawable(title,R.drawable.ic_trending_flat_black_24dp);
 
         }
-       */     detail.setText(dest_to[position]);
+       */   //  detail.setText(dest_to[position]);
         for(int i=0;i<dest_to.length;i++){
-            detail.append(dest_to[i] + "\t"+" TO ");
+            detail.append(dest_to[i] + "\t");
+            if(i<dest_to.length-1) detail.append(Html.fromHtml("&#8594;")+" ");
          //   detail.setCompoundDrawablesWithIntrinsicBounds(R.drawable.arroyicon, 0, R.drawable.arroyicon, 0);
         //    Log.d("TO", dest_to[i]);
         }

@@ -9,16 +9,30 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior" tools:showIn="@layout/app_bar_main"
     tools:context=".MainActivity"
     android:id="@+id/main">
-    <AutoCompleteTextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearlistlist">
+
+        <AutoCompleteTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/dest_text"
         android:hint="Enter Destination"
+        android:layout_weight="3"
         />
+
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:background="@drawable/searchicon"/>
+    </LinearLayout>
     <fragment
-        android:layout_below="@+id/dest_text"
+        android:layout_below="@+id/linearlistlist"
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+
 </RelativeLayout>

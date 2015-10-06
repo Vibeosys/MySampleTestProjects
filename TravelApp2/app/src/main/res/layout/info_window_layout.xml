@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/line1"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/custom_text">
+    android:layout_width="200dp"
+    android:layout_height="400dp"
+    android:background="@drawable/custom_text"
+   >
 
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="30dp"
        android:orientation="vertical">
        <TextView
-           android:layout_width="match_parent"
+           android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_alignParentLeft="true"
            android:textColor="#000"
@@ -19,6 +21,7 @@
            android:layout_marginBottom="5dp"
            android:layout_marginTop="8dp"
            android:id="@+id/textView3"
+           android:textAlignment="center"
            android:layout_gravity="center_horizontal" />
 
    </LinearLayout>
@@ -27,13 +30,14 @@
     android:layout_height="4dp"
     android:background="#000"/>
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:background="#F3F3F3"
         android:orientation="vertical"
         android:id="@+id/item1"
         android:layout_marginBottom="5dp"
-        >
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
 
 
@@ -56,7 +60,7 @@
             android:text="Photos "
             android:textSize="12dp"
             android:textStyle="bold"
-            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
 
         <!-- counter -->
@@ -75,12 +79,14 @@
             android:background="@drawable/shape" />
     </RelativeLayout>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:background="#F3F3F3"
         android:orientation="vertical"
         android:layout_below="@+id/item1"
-        android:id="@+id/relativeLayout">
+        android:id="@+id/relativeLayout"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <!-- icon -->
         <ImageView
@@ -120,7 +126,7 @@
             android:autoText="false" />
     </RelativeLayout>
 <RelativeLayout
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="40dp"
     android:layout_below="@+id/relativeLayout">
     <TextView

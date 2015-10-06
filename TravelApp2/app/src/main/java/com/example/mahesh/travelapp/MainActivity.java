@@ -15,7 +15,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -104,7 +103,7 @@ Button button=(Button)findViewById(R.id.fab);
             mMap.animateCamera(zoom);*/
             mMap.addMarker(new MarkerOptions().position(new LatLng(18.5203, 73.8567)).title("Pune"));
             mMap.addMarker(new MarkerOptions().position(new LatLng(12.9667, 77.5667)).title("Banglore"));
-             mMap.addMarker(new MarkerOptions().position(new LatLng(13.0827, 80.2707)).title("Chennai"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(13.0827, 80.2707)).title("Chennai"));
             mMap.addPolyline(new PolylineOptions().geodesic(true)
                     .add(new LatLng(18.5203, 73.8567))  // Pune
                     .add(new LatLng(12.9667, 77.5667))  // Banglore
@@ -112,53 +111,60 @@ Button button=(Button)findViewById(R.id.fab);
 
             );
             //View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
-
+         //   mMap.getUiSettings().setMyLocationButtonEnabled(true);
             mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
                 View view = null;
                 //View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
 
                 @Override
                 public View getInfoWindow(Marker mark) {
-                    if(view == null) {
+                    if (view == null) {
                         view = getLayoutInflater().inflate(R.layout.info_window_layout, null);
-                        view.setLayoutParams(new ViewGroup.LayoutParams(200,200));
+
+                        Log.d("Height", String.valueOf(view.getHeight()));
+                        Log.d("Width",String.valueOf(view.getWidth()));
+                        //    view.setLayoutParams(new ViewGroup.LayoutParams(200,200));
+                        TextView title = (TextView) view.findViewById(R.id.textView3);
+                        title.setText(mark.getTitle());
                     }
                     return view;
                 }
 
                 @Override
                 public View getInfoContents(Marker marker) {
-                    View view = getInfoWindow(marker);
-                    view.setLayoutParams(new ViewGroup.LayoutParams(200,200));
-                    TextView title = (TextView) view.findViewById(R.id.textView3);
-                    title.setText(marker.getTitle());
-                    return view;
+                    //* View view = getInfoWindow(marker);
+                    //view.setLayoutParams(new ViewGroup.LayoutParams().LayoutParams(200, 200));*//*
+
+                    return null;
                 }
 
             });
             mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+
                 public void onInfoWindowClick(Marker mark) {
-                    if(mark.getTitle().equals("Pune")) {
-                   //     CustDialog("Pune");
+                    mark.setInfoWindowAnchor(5, 5);
+
+                    if (mark.getTitle().equals("Pune")) {
+                        //     CustDialog("Pune");
                         Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
 
                     }
-                    if(mark.getTitle().equals("Chennai"))
-                    {
-                     //   CustDialog("Chennai");
-                       Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+                    if (mark.getTitle().equals("Chennai")) {
+                        //   CustDialog("Chennai");
+                        Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
 
                     }
-                    if(mark.getTitle().equals("Banglore")){
-                       // CustDialog("Banglore");
+                    if (mark.getTitle().equals("Banglore")) {
+                        // CustDialog("Banglore");
                         Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
 
                     }
                 }
             });
-          /*  mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+        /*   mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                 @Override
                 public boolean onMarkerClick(Marker mark) {
+
                     if(mark.getTitle().equals("Pune")) {
                         CustDialog("Pune");
                         Toast.makeText(MainActivity.this, mark.getTitle(), Toast.LENGTH_SHORT).show();// display toast
@@ -200,7 +206,7 @@ Button button=(Button)findViewById(R.id.fab);
       // Set dialog title
       dialog.setTitle(title);
       Window window = dialog.getWindow();
-      window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+      window.setLayout(400,400);
       dialog.show();
       RelativeLayout relativeLayout=(RelativeLayout)dialog.findViewById(R.id.item1);
       relativeLayout.setOnClickListener(new View.OnClickListener() {
@@ -288,6 +294,7 @@ sendphoto_button.setOnClickListener(new View.OnClickListener() {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_save) {
+            Toast.makeText(getApplicationContext(),"Created Map",Toast.LENGTH_SHORT).show();
             return true;
         }
 
